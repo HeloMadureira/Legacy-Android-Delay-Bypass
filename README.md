@@ -50,5 +50,18 @@ Com base na falha crítica de *delay* e na alta velocidade de injeção de PINs 
 * Avaliar se a vulnerabilidade de *delay bypass* persiste em versões do Android 8.0 e superiores.
 
 ---
+## 🎓 Conclusão e Experiência Adquirida
 
+Este projeto demonstrou a importância de não confiar em mecanismos de segurança de dispositivos legados, especialmente quando combinados com a facilidade de acesso oferecida por ferramentas de desenvolvimento (ADB).
+
+O sucesso na identificação e comprovação da **falha de *delay bypass*** contra a injeção de senha ADB reforça a necessidade de aplicar os princípios de defesa em profundidade.
+
+### 🌟 Habilidades Técnicas e Analíticas Comprovadas
+
+* **Análise de Vulnerabilidade:** Capacidade de identificar e provar a ineficácia de mecanismos de defesa em sistemas operacionais legados.
+* **Metodologia de Pentest Móvel:** Aplicação de metodologia de teste (preparação, execução de Força Bruta e Exploração) em ambiente controlado.
+* **Domínio de Ferramentas:** Proficiência na configuração e uso do **Kali Linux**, **Android Debug Bridge (ADB)** e ferramentas de segurança como o **CiLocks**.
+* **Comunicação de Riscos:** Habilidade em traduzir descobertas técnicas (ex: o *delay* foi contornado) em recomendações de segurança claras e acionáveis.
+
+---
 **[FIM DO RELATÓRIO TÉCNICO]**

@@ -64,4 +64,35 @@ O sucesso na identificação e comprovação da **falha de *delay bypass*** cont
 * **Comunicação de Riscos:** Habilidade em traduzir descobertas técnicas (ex: o *delay* foi contornado) em recomendações de segurança claras e acionáveis.
 
 ---
+
+---
+## 🛠️ Análise de Ferramentas: Prova de Conceito (PoC) do CiLocks
+
+Após o sucesso na exploração de delay bypass, conduzimos testes de estabilidade e eficácia em funcionalidades-chave da ferramenta CiLocks v2.1 para entender suas limitações e capacidades na fase de Reconhecimento e Força Bruta Otimizada.
+
+### III.1. Reconhecimento de Alvo (Opção 12: Phone Info)
+
+Esta funcionalidade extrai informações vitais do dispositivo alvo, utilizando comandos ADB simples (getprop). Essa fase é crítica para identificar o perfil exato do sistema operacional e hardware na fase de **Reconhecimento**.
+
+| Campo | Dado Encontrado |
+| :--- | :--- |
+| **Manufacturer** | Samsung |
+| **Model** | SM-T560 |
+| **Version** | 4.4.4 |
+| **SDK (API)** | 19 |
+
+**Conclusão da Análise:** A Opção 12 funciona perfeitamente, fornecendo dados essenciais que confirmam a **versão legada (Android 4.4.4)** do sistema, validando o vetor de ataque inicial.
+
+### III.2. Força Bruta Otimizada (Opção 4: Brute LockScreen Using Wordlist)
+
+O objetivo foi testar a capacidade do script de injetar listas de PINs/Senhas via ADB, simulando um ataque de dicionário.
+
+**Resultado do Teste:**
+
+1.  **Tentativa com Palavras (Ex: 'juju', 'hello'):** O script do CiLocks retornou **erro de sintaxe** e falhou, provando que esta funcionalidade é **estritamente numérica** ou que a implementação do script é falha.
+2.  **Tentativa com PINs (Ex: '1111'):** Após a limpeza da wordlist para conter apenas números, o ataque foi **bem-sucedido** e o PIN foi encontrado.
+
+**Conclusão da Análise:** A funcionalidade de ataque por wordlist é **instável** no CiLocks v2.1. Embora seja eficaz para PINs, ela é sensível a caracteres não numéricos, exigindo que o analista customize a wordlist antes da execução.
+
+---
 **[FIM DO RELATÓRIO TÉCNICO]**
